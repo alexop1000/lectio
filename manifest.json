@@ -1,0 +1,12 @@
+{
+    "name": "Lectio",
+    "description": "Lectio better",
+    "manifest_version": 2,
+    "version": "0.0.1",
+    "content_scripts": [
+        {
+            "matches": ["https://*.lectio.dk/*"],
+            "js": ["js/opgaver.js", "js/skema.js", "js/karakter.js"]
+        }
+    ]
+}
