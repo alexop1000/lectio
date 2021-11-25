@@ -2,7 +2,6 @@
     if (window.location.pathname.includes("SkemaNy")) {
         const skema = document.querySelector(".s2skema tbody tr:nth-child(4)");
         const currentWeekday = new Date().getDay();
-        const currentWeekdayString = ["Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"][currentWeekday];
         const skemaDay = skema.querySelector(`td:nth-child(${currentWeekday + 1})`);
         const skemaBlock = skemaDay.querySelector("div");
         const lectures = skemaBlock.querySelectorAll(".s2skemabrik");
