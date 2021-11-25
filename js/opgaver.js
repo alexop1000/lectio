@@ -48,11 +48,11 @@ const sortTable = (table, col, reverse) => {
 					if (timeUntilDate < 1000 * 60 * 60) {
 						htmlToApply = `\n${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
 					}
-					// Make it red if the time until date is smaller than 1 day
+					// Make it red if the time until date is less than 1 day
 					if (timeUntilDate < 1000 * 60 * 60 * 24) {
 						htmlToApply = `<span style="color: red">${htmlToApply}</span>`;
 					}
-					// Make it orange if the time until date is smaller than 4 days
+					// Make it orange if the time until date is less than 4 days
 					if (timeUntilDate < 1000 * 60 * 60 * 24 * 4) {
 						htmlToApply = `<span style="color: orange">${htmlToApply}</span>`;
 					} else {
