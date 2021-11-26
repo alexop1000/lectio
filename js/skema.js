@@ -18,14 +18,18 @@ function stringToColor(str) {
             const div = td.querySelector("div");
             const lectureBlock = div.querySelectorAll(".s2skemabrik");
             for (const lecture of lectureBlock) {
-                // Get "Hold" from the lecture data-additionalinfo attribute
-                const hold = lecture.getAttribute("data-additionalinfo").match(/Hold: (.*)/)[1];
-                const colored = stringToColor(hold.trim().split(" ").join("_"));
-                // Make yellow color darker
-                const darker = `rgb(${parseInt(colored.substr(1, 2), 16) - 50}, ${parseInt(colored.substr(3, 2), 16) - 50}, ${parseInt(colored.substr(5, 2), 16) - 50})`;
-                // Set the background color of the lecture to the color of the hold
-                // and the text color to the darker version of the color
-                lecture.querySelector(".s2skemabrikInnerContainer").style.backgroundColor = darker;
+                try {
+                    // Get "Hold" from the lecture data-additionalinfo attribute
+                    const hold = lecture.getAttribute("data-additionalinfo").match(/Hold: (.*)/)[1];
+                    const colored = stringToColor(hold.trim().split(" ").join("_"));
+                    // Make yellow color darker
+                    const darker = `rgb(${parseInt(colored.substr(1, 2), 16) - 50}, ${parseInt(colored.substr(3, 2), 16) - 50}, ${parseInt(colored.substr(5, 2), 16) - 50})`;
+                    // Set the background color of the lecture to the color of the hold
+                    // and the text color to the darker version of the color
+                    lecture.querySelector(".s2skemabrikInnerContainer").style.backgroundColor = darker;
+                } catch (error) {
+                    console.log(error);
+                }
             }
         }
         for (const lecture of lectures) {
