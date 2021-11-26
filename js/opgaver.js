@@ -68,7 +68,7 @@ const formatDate = (date) => {
 						htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60))} timer og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
 					}
 					if (timeUntilDate < 1000 * 60 * 60) {
-						htmlToApply = `\n${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
+						htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
 					}
 					// Make it red if the time until date is less than 1 day
 					if (timeUntilDate < 1000 * 60 * 60 * 24) {
