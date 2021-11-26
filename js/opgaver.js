@@ -5,8 +5,8 @@ const sortTable = (table, col, reverse) => {
 	for (let i = 1, len = tb.rows.length; i < len; i++) {
 		const row = tb.rows[i];
 		const sortnr = new Date(
-			(row.cells[col].textContent || row.cells[col].innerText)
-				.replace(/^(\d{1,})\/(\d{1,})-(\d{3,}) (\d{1,}):(\d{1,})$/gm, "$2/$1-$3 $4:$5")
+			formatDate((row.cells[col].textContent || row.cells[col].innerText)
+				)
 		).getTime() - new Date().getTime()
 		store.push([sortnr, row]);
 	}
@@ -25,7 +25,17 @@ const sortTable = (table, col, reverse) => {
 	}
 	delete store;
 }
-
+const formatDate = (date) => {
+	//// Formats the date from dd/mm-yyyy hh:mm to yyyy-mm-ddThh:mm:ss+01:00 
+	let dateNums = date.replace(/^(\d{1,})\/(\d{1,})-(\d{3,}) (\d{1,}):(\d{1,})$/gm, "$3-$2-$1T$4:$5:00+01:00").split(/([-T])/g);
+	if (dateNums[2] < 10){
+		dateNums[2] =  "0" + dateNums[2];
+	}
+	if (dateNums[4] < 10){
+		dateNums[4] =  "0" + dateNums[4];
+	}
+	return dateNums.join("");
+} 
 (async () => {
 	if (window.location.href.includes("OpgaverElev")) {
 		// Sort the elements in the opgaver table by date with newest first
@@ -34,12 +44,24 @@ const sortTable = (table, col, reverse) => {
 		for (const opgave of opgaver) {
 			let date = opgave.querySelector("td:nth-child(4)")
 			if (!date) continue;
-			date = date.innerText;
+			//makes sure only the text of first child is used
+			child = date.firstChild;
+			texts = [];
+			while (child) {
+				if (child.nodeType == 3) {
+					texts.push(child.data);
+				}
+				child = child.nextSibling;
+			}
+			date = texts.join("");
+			
+
 			const origDate = date;
-			// Make the date from dd/mm-yyyy hh:mm to mm/dd-yyyy hh:mm
-			date = date.replace(/^(\d{1,})\/(\d{1,})-(\d{3,}) (\d{1,}):(\d{1,})$/gm, "$2/$1-$3 $4:$5");
+			date = formatDate(date);
+
 			const updateCount = () => {
 				const timeUntilDate = new Date(date).getTime() - new Date().getTime();
+
 				if (timeUntilDate > 0) {
 					let htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60 * 24))} dage, ${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer og ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter`;
 					if (timeUntilDate < 1000 * 60 * 60 * 24) {

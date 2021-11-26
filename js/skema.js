@@ -1,3 +1,11 @@
+function stringToColor(str) {
+    // Make string into a number between 0 and 255
+    const hash = str.split('').reduce((prevHash, currVal) =>
+        ((prevHash << 5) - prevHash) + currVal.charCodeAt(0), 0);
+    return '#' + ('000000' + hash.toString(16)).slice(-6);
+
+}
+
 (async () => {
     if (window.location.pathname.includes("SkemaNy")) {
         const skema = document.querySelector(".s2skema tbody tr:nth-child(4)");
@@ -5,6 +13,21 @@
         const skemaDay = skema.querySelector(`td:nth-child(${currentWeekday + 1})`);
         const skemaBlock = skemaDay.querySelector("div");
         const lectures = skemaBlock.querySelectorAll(".s2skemabrik");
+        const allLectures = skema.querySelectorAll("td")
+        for (const td of allLectures) {
+            const div = td.querySelector("div");
+            const lectureBlock = div.querySelectorAll(".s2skemabrik");
+            for (const lecture of lectureBlock) {
+                // Get "Hold" from the lecture data-additionalinfo attribute
+                const hold = lecture.getAttribute("data-additionalinfo").match(/Hold: (.*)/)[1];
+                const colored = stringToColor(hold.trim().split(" ").join("_"));
+                // Make yellow color darker
+                const darker = `rgb(${parseInt(colored.substr(1, 2), 16) - 50}, ${parseInt(colored.substr(3, 2), 16) - 50}, ${parseInt(colored.substr(5, 2), 16) - 50})`;
+                // Set the background color of the lecture to the color of the hold
+                // and the text color to the darker version of the color
+                lecture.querySelector(".s2skemabrikInnerContainer").style.backgroundColor = darker;
+            }
+        }
         for (const lecture of lectures) {
             if (parseInt(document.querySelector(`.s2dayHeader td:nth-child(` + (currentWeekday + 1) + `)`).innerText.split("/")[0].match(/\d+/g)[0]) !== new Date().getDate()) continue;
             const start = lecture.getAttribute("data-additionalinfo").match(/\d+:\d+/)[0]

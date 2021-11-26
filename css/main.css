@@ -52,7 +52,6 @@ body * {
 .ls-master-header, .lectioToolbar.lectioBorderTop.lectioBorderBot, .ls-island4, .ls-texteditor-container, #s_m_Content_Content_tocAndToolbar_tocContainer, #s_m_Content_Content_tocAndToolbar_outerContentContainer, .ls-paper, .lc-display-fragment {
     background-color: #191b1d !important;
     background-image: none !important;
-    font-size: 16px !important;
     font-weight: 500 !important;
     font-family: HCo Gotham SSm,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif !important;
 }
@@ -130,22 +129,22 @@ body * {
     background-image: none !important;
 }
 table *, .ls-phase-activity{
-    background-color: #393b3d !important;
+    /* background-color: #393b3d !important; */
     background-image: none !important;
 }
-table {
-    border-collapse: inherit !important;
+table, tbody, tr, td, .s2skemabrikcontainer, .s2module-bg {
+    border-collapse: collapse !important;
+    background-color: #393b3d !important;
 }
-td {
+/* td {
     padding: 5px !important;
-    /* border: 1px solid #ccc !important; */
     border-left: 0 !important;
     border-right: 0 !important;
     margin: 0 !important;
     text-align: left !important;
-}
+} */
 .s2skemabrikInnerContainer, .s2skemabrikInnerContainer * {
-    background-color: #232527 !important;
+    /* background-color: #232527 !important; */
 }
 a.s2bgbox {
     border: solid 1px #191b1d !important;
