@@ -18,6 +18,7 @@
         }
         const gennemsnit = sum / vægte;
         // add it to the bottom of the table
+        
         const karakterRow = karakterView.querySelector("tbody tr:last-child");
         const clonedRow = karakterRow.cloneNode(true);
         clonedRow.querySelector("td:nth-child(2)").innerText = "Gennemsnit";
@@ -25,5 +26,24 @@
         clonedRow.querySelector("td:nth-child(3) div").innerText = gennemsnit.toFixed(2);
         clonedRow.querySelector("td:nth-child(3) div").title = "Vægtet gennemsnit";
         karakterRow.parentElement.appendChild(clonedRow);
+
+
+        const karakterTopRow = karakterView.querySelector("tbody tr:nth-child(1) th:last-child");
+        const clonedTopRow = karakterTopRow.cloneNode(true);
+        clonedTopRow.innerText = "Vægt";
+        karakterTopRow.parentElement.appendChild(clonedTopRow);
+
+        let counter = 2
+        for (const karakter of karakterer) {
+            const vægtCol = karakterView.querySelector("tbody tr:nth-child(" + counter + ") td:last-child");
+            const clonedVægtCol = vægtCol.cloneNode(true);
+            clonedVægtCol.innerText = karakter[0];
+            vægtCol.parentElement.appendChild(clonedVægtCol);
+            counter++;
+        }
+        
+        
+        
+        
     }
 })()

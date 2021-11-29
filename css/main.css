@@ -166,3 +166,13 @@ a.s2bgbox {
 .cke_inner * {
     color: white !important;
 }
+.hideSkema {
+    display: none !important;
+}
+.noteBtnDiv {
+    border: 2px solid white;
+    padding: 5px;
+}
+.noteBtnDiv:hover {
+    cursor: pointer;
+}
