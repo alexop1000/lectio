@@ -65,7 +65,7 @@ const formatDate = (date) => {
 				if (timeUntilDate > 0) {
 					let htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60 * 24))} dage, ${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer og ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter`;
 					if (timeUntilDate < 1000 * 60 * 60 * 24) {
-						htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60))} timer og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
+						htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60))} timer, ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
 					}
 					if (timeUntilDate < 1000 * 60 * 60) {
 						htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
