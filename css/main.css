@@ -32,7 +32,7 @@ h2, h1, h3, div[role="heading"] {
 body * {
     color: white;
 }
-.tooltip, .islandHeader, .maintitle, .ls-master-header-institution, .tooltip *, .tooltiphead, .s2weekHeader *, .s2dayHeader *, #cluetip *, .s2dayHeaderSimple, .dashboardLinkHeaderInfoText, #homeworkContentContainer * {
+.tooltip, .islandHeader, .maintitle, .ls-master-header-institution, .tooltip *, .tooltiphead, .s2weekHeader *, .s2dayHeader *, #cluetip *, .s2dayHeaderSimple, .dashboardLinkHeaderInfoText, .activityHeader, #homeworkContentContainer * {
     color: white !important;
 }
 .islandHeaderContainer {
@@ -176,8 +176,24 @@ a.s2bgbox {
     cursor: pointer;
 }
 #s_m_Content_Content_skemaIsland_pa .s2skemabrikcontent, .phase, #s_m_Content_Content_contentPnl .s2skemabrikcontent{
-    background: #1b1d1e !important
+    background: #1b1d1e !important;
 }
-.colHeader, .table-col-fixed, .ls-phase-activity, .ls-container, #printareawishes {
+.colHeader, .table-col-fixed, .ls-phase-activity, .ls-container, #printareawishes{
     background: none !important;
+}
+.sejBoks {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    height: 1050px !important;
+}
+.lectioBorderBot, .activityHeader, .lectioSimpleBox list {
+    border: none !important;
+    background-color: #191b1d !important;
+    background-image: none !important;
+}
+
+.list TH, .ls-table-layout1 TH, .list, .ls-table-layout1, .list TR, .ls-table-layout1 TR, .buttonHeader A, INPUT.buttonHeader, BUTTON.buttonHeader, .lectioSimpleBox list {
+    border: none !important;
+    border-collapse: collapse !important;
 }
