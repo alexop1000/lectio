@@ -181,7 +181,7 @@ a.s2bgbox {
 .colHeader, .table-col-fixed, .ls-phase-activity, .ls-container, #printareawishes{
     background: none !important;
 }
-.sejBoks {
+.forsideBoks {
     display: flex !important;
     flex-direction: column !important;
     flex-wrap: wrap !important;
