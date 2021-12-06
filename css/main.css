@@ -185,7 +185,7 @@ a.s2bgbox {
     display: flex !important;
     flex-direction: column !important;
     flex-wrap: wrap !important;
-    height: 1050px !important;
+    height: 115vh !important;
 }
 .lectioBorderBot, .activityHeader, .lectioSimpleBox list {
     border: none !important;
