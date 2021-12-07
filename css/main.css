@@ -197,3 +197,6 @@ a.s2bgbox {
     border: none !important;
     border-collapse: collapse !important;
 }
+input[type="checkbox"]:checked:before {
+    color: #fff !important;
+}

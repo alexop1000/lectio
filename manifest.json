@@ -3,13 +3,18 @@
     "description": "Lectio better",
     "manifest_version": 2,
     "version": "0.0.1",
+    "browser_action": {
+        "default_icon": "images/lectio_logo.png",
+        "default_popup": "popup/popup.html"
+    },
     "content_scripts": [
         {
             "matches": ["https://*.lectio.dk/*"],
-            "js": ["js/opgaver.js", "js/skema.js", "js/karakter.js", "js/forside.js", "js/skolevalg.js"],
+            "js": ["js/opgaver.js", "js/skema.js", "js/karakter.js", "js/forside.js", "js/skolevalg.js", "/js/login.js"],
             "css": ["css/main.css"],
             "web_accessible_resources": ["images/lectio_logo.png"],
             "all_frames": true
         }
-    ]
+    ],
+    "permissions": ["storage"]
 }
