@@ -185,14 +185,18 @@ a.s2bgbox {
     display: flex !important;
     flex-direction: column !important;
     flex-wrap: wrap !important;
+}
+.forsideNonzoomed {
     height: 115vh !important;
+}
+.forsideZoomed {
+    height: 125vh !important;
 }
 .lectioBorderBot, .activityHeader, .lectioSimpleBox list {
     border: none !important;
     background-color: #191b1d !important;
     background-image: none !important;
 }
-
 .list TH, .ls-table-layout1 TH, .list, .ls-table-layout1, .list TR, .ls-table-layout1 TR, .buttonHeader A, INPUT.buttonHeader, BUTTON.buttonHeader, .lectioSimpleBox list {
     border: none !important;
     border-collapse: collapse !important;
