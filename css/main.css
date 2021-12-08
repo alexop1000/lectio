@@ -204,3 +204,6 @@ a.s2bgbox {
 input[type="checkbox"]:checked:before {
     color: #fff !important;
 }
+#s_m_Content_Content_SkemaNyMedNavigation_skema_skematabel {
+    width: 100% !important;
+}
