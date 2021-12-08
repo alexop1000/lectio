@@ -4,7 +4,6 @@
     "manifest_version": 2,
     "version": "0.5.0",
     "browser_action": {
-        "default_icon": "images/lectio_logo.png",
         "default_popup": "popup/popup.html"
     },
     "content_scripts": [
