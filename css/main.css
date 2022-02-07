@@ -34,6 +34,7 @@ body * {
 }
 .tooltip, .islandHeader, .maintitle, .ls-master-header-institution, .tooltip *, .tooltiphead, .s2weekHeader *, .s2dayHeader *, #cluetip *, .s2dayHeaderSimple, .dashboardLinkHeaderInfoText, .activityHeader, #homeworkContentContainer * {
     color: white !important;
+    background: transparent !important;
 }
 .islandHeaderContainer {
     background-color: #1b1d1e !important;
@@ -69,7 +70,7 @@ body * {
     background-color: #1b1d1e !important;
     border: none !important;
 }
-.cluetip-inner {
+.cluetip-inner, #cluetip {
     background-color: #1b1d1e !important;
     border: none !important;
 }
@@ -192,7 +193,7 @@ a.s2bgbox {
 .forsideZoomed {
     height: 125vh !important;
 }
-.lectioBorderBot, .activityHeader, .lectioSimpleBox list {
+.lectioBorderBot, .activityHeader, .lectioSimpleBox list, .ui-datepicker-header {
     border: none !important;
     background-color: #191b1d !important;
     background-image: none !important;
@@ -206,4 +207,14 @@ input[type="checkbox"]:checked:before {
 }
 #s_m_Content_Content_SkemaNyMedNavigation_skema_skematabel {
     width: 100% !important;
+}
+#studieTabel td, #printareaWishlist th {
+    color:white !important;
+}
+#studieTabel td[align="left"], .ShowMessage2Inner h4 {
+    font-weight: bold !important;
+    color: white !important;
+}
+#printareaWishlist .infoText {
+    color: #817f7f !important;
 }
