@@ -37,7 +37,7 @@ const formatDate = (date) => {
 	return dateNums.join("");
 } 
 (async () => {
-	if (window.location.href.includes("OpgaverElev")) {
+	if (window.location.href.includes("/OpgaverElev.aspx") || window.location.href.includes("/spoergeskema/spoergeskema_rapport.aspx")) {
 		// Sort the elements in the opgaver table by date with newest first
 		sortTable(document.querySelector("table"), 3, true);
 		const opgaver = document.querySelectorAll("tr");

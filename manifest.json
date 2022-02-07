@@ -9,7 +9,7 @@
     "content_scripts": [
         {
             "matches": ["https://*.lectio.dk/*"],
-            "js": ["js/opgaver.js", "js/skema.js", "js/karakter.js", "js/forside.js", "js/skolevalg.js", "/js/login.js"],
+            "js": ["js/opgaver.js", "js/skema.js", "js/karakter.js", "js/forside.js", "js/skolevalg.js", "/js/login.js", "js/alle.js"], 
             "css": ["css/main.css"],
             "web_accessible_resources": ["images/lectio_logo.png"],
             "all_frames": true
