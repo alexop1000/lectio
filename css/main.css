@@ -218,3 +218,8 @@ input[type="checkbox"]:checked:before {
 #printareaWishlist .infoText {
     color: #817f7f !important;
 }
+.fricount {
+    position: absolute;
+    top: 45px;
+    left: 295px;
+}
