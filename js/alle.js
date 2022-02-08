@@ -38,6 +38,7 @@ const getBackend = async (key, toGet, timeout) => {
 		}
 	});
 }
+
 (async () => {
 
 	chrome.storage.local.get(["light"], (result) => {
@@ -97,6 +98,11 @@ const getBackend = async (key, toGet, timeout) => {
 	}
 
 	const location = window.location.href;
-	fGetXML(location.split("/")[4], location?.split("?elevid=")?.[1]?.split("&")[0] ?? location.split("&elevid=")[1].split("&")[0]);
-
+	fGetXML(location?.split("/")?.[4], location?.split("?elevid=")?.[1]?.split("&")[0] ?? location?.split("&elevid=")?.[1]?.split("&")?.[0]);
+	setInterval(() => {
+		const afkAlert = document.querySelector("div.ui-dialog.ui-corner-all.ui-widget")
+		if (afkAlert != null){
+			window.location.reload()
+		}
+	}, 5000)
 })()
