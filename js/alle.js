@@ -40,6 +40,9 @@ const getBackend = async (key, toGet, timeout) => {
 }
 (async () => {
 
+	chrome.storage.local.get(["light"], (result) => {
+		if (result.light) document.body.classList.add("light-theme")
+	})
 	const fGetXML = async (skoleId, elevId) => {
 		const response = await getBackend("skemaEnd", async () => {
 			return new Promise(res2 => {
