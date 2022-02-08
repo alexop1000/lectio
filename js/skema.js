@@ -3,10 +3,7 @@ function stringToColor(str) {
     const hash = str.split('').reduce((prevHash, currVal) =>
         ((prevHash << 5) - prevHash) + currVal.charCodeAt(0), 0);
     return '#' + ('000000' + hash.toString(16)).slice(-6);
-
 }
-
-
 
 (async () => {
     if (window.location.pathname.includes("SkemaNy")) {

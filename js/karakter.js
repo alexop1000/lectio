@@ -27,7 +27,6 @@
         clonedRow.querySelector("td:nth-child(3) div").title = "Vægtet gennemsnit";
         karakterRow.parentElement.appendChild(clonedRow);
 
-
         const karakterTopRow = karakterView.querySelector("tbody tr:nth-child(1) th:last-child");
         const clonedTopRow = karakterTopRow.cloneNode(true);
         clonedTopRow.innerText = "Vægt";
@@ -41,9 +40,6 @@
             vægtCol.parentElement.appendChild(clonedVægtCol);
             counter++;
         }
-        
-        
-        
         
     }
 })()
