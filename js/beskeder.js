@@ -48,7 +48,7 @@
         }
 
         const folderLabel = document.querySelector("#s_m_Content_Content_MessageFolderLabel")
-        if (folderLabel.innerText = "Indbyggede grupper") folderLabel.innerText = "Alle beskeder";
+        if (folderLabel.innerText == "Indbyggede grupper") folderLabel.innerText = "Alle beskeder";
         const originalTekst = folderLabel.innerText
         folderLabel.innerText += " - Elev Beskeder";
         const clonedLabel = folderLabel.parentElement.parentElement.cloneNode(true);
