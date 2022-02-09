@@ -1,3 +1,33 @@
+const find = async (selector, num) => {
+    const found = document.querySelectorAll(selector);
+    if (found.length && found.length > (num || 0)) {
+        return num ? found[num] : found;
+    }
+    return new Promise((resolve) => {
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes.length) {
+                    const found = document.querySelectorAll(selector);
+                    if (found.length && found.length > (num || 0)) {
+                        observer.disconnect();
+                        resolve(num ? found[num] : found);
+                    }
+                }
+            });
+        });
+        observer.observe(document, { childList: true, subtree: true });
+    });
+};
+
+// Get the first element using the find function and a selector string
+const first = async (selector, then) => {
+    return new Promise(async resolve => {
+        const found = await find(selector);
+        if (then) then(found[0]);
+        resolve(found[0]);
+    })
+};
+
 const cachedValues = {}
 const awaitAction = async (action, key) => { return new Promise(resolve => chrome.runtime.sendMessage({ action: action, key: key }, resolve)) };
 
@@ -43,11 +73,11 @@ const getBackend = async (key, toGet, timeout) => {
 	chrome.storage.local.get(["light"], (result) => {
 		if (result.light) document.body.classList.add("light-theme")
 	})
-	chrome.storage.local.get(["fri"], (result) => {
+	chrome.storage.local.get(["fri"], async (result) => {
 		if (result.fri) {
 			const fGetXML = async (skoleId, elevId) => {
 				const response = await getBackend("skemaEnd", async () => {
-					return new Promise(res2 => {
+					return new Promise(async res2 => {
 						var xhttpUrl = "https://www.lectio.dk/lectio/" + skoleId + "/SkemaNy.aspx?type=elev&elevid=" + elevId;
 						console.log(xhttpUrl);
 						var xhttp = new XMLHttpRequest();
@@ -83,7 +113,7 @@ const getBackend = async (key, toGet, timeout) => {
 						xhttp.send();
 					})
 				}, 1000 * 60 * 60)
-				const header = document.querySelector("header[role='banner']");
+				const header = await first("header[role='banner']");
 				header.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
 				setInterval(() => {
 					const timeUntilDate = response - (new Date())

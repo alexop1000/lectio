@@ -31,13 +31,13 @@
         // fGetXML(location.split("/")[4], location?.split("?elevid=")?.[1]?.split("&")[0] ?? location.split("&elevid=")[1].split("&")[0]);
         
         // const doc = xhttp.responseXML;
-        const holder = document.querySelector("#s_m_Content_Content_threadGV_ctl00");
+        const holder = await first("#s_m_Content_Content_threadGV_ctl00");
         const clonedRow = holder.cloneNode(true);
 
         for (const tr of holder.querySelectorAll("tr")) {
             const sender = tr.querySelector("td:nth-child(6)");
             if (sender && sender?.textContent?.includes?.("(")) {
-                const realElement = document.querySelector(`span[title="${sender.firstChild.title}"]`);
+                const realElement = await first(`span[title="${sender.firstChild.title}"]`);
                 realElement.parentElement.parentElement.remove();
             }
         }
@@ -47,7 +47,7 @@
             sender.parentElement.remove();
         }
 
-        const folderLabel = document.querySelector("#s_m_Content_Content_MessageFolderLabel")
+        const folderLabel = await first("#s_m_Content_Content_MessageFolderLabel")
         if (folderLabel.innerText == "Indbyggede grupper") folderLabel.innerText = "Alle beskeder";
         const originalTekst = folderLabel.innerText
         folderLabel.innerText += " - Elev Beskeder";
@@ -59,7 +59,7 @@
         holder.parentElement.appendChild(clonedRow);
         
         //Change name of Indbyggede grupper to Alle beskeder
-        const beskedKatagorier = document.querySelector("#s_m_Content_Content_ListGridSelectionTree");
+        const beskedKatagorier = await first("#s_m_Content_Content_ListGridSelectionTree");
         beskedKatagorier.querySelector("div[lec-node-id='-30'] .TreeNode-title").innerText = "Alle beskeder";
     }
 })()

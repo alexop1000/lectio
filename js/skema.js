@@ -8,14 +8,14 @@ function stringToColor(str) {
 (async () => {
     if (window.location.pathname.includes("SkemaNy")) {
         const isFirefox = (navigator.userAgent.toLowerCase().indexOf("firefox") != -1)
-        const skema = document.querySelector(".s2skema tbody tr:nth-child(4)");
+        const skema = await first(".s2skema tbody tr:nth-child(4)");
         const currentWeekday = new Date().getDay();
         const skemaDay = skema.querySelector(`td:nth-child(${currentWeekday + 1})`);
         const skemaBlock = skemaDay.querySelector("div");
         const lectures = skemaBlock.querySelectorAll(".s2skemabrik");
         const allLectures = skema.querySelectorAll("td")
-        const skemaNote = document.querySelector(".s2skema tbody tr:nth-child(3)");
-        const skemaBar = document.querySelector("#s_m_Content_Content_SkemaNyMedNavigation_skemaprintarea");
+        const skemaNote = await first(".s2skema tbody tr:nth-child(3)");
+        const skemaBar = await first("#s_m_Content_Content_SkemaNyMedNavigation_skemaprintarea");
         
         var noteToggled = false ;
         var div = document.createElement('div');
