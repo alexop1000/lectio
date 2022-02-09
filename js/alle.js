@@ -113,8 +113,8 @@ const getBackend = async (key, toGet, timeout) => {
 						xhttp.send();
 					})
 				}, 1000 * 60 * 60)
-				const header = await first("header[role='banner']");
-				header.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
+				const headerNav = await first("header[role='banner'] nav");
+				headerNav.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
 				setInterval(() => {
 					const timeUntilDate = response - (new Date())
 					let htmlToApply = `${Math.floor(timeUntilDate / (1000 * 60 * 60 * 24))} dage, ${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer og ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter`;
