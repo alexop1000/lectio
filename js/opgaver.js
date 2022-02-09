@@ -39,7 +39,7 @@ const formatDate = (date) => {
 (async () => {
 	if (window.location.href.includes("/OpgaverElev.aspx") || window.location.href.includes("/spoergeskema/spoergeskema_rapport.aspx")) {
 		// Sort the elements in the opgaver table by date with newest first
-		sortTable(document.querySelector("table"), 3, true);
+		sortTable(await first("table"), 3, true);
 		const opgaver = document.querySelectorAll("tr");
 		for (const opgave of opgaver) {
 			let date = opgave.querySelector("td:nth-child(4)")

@@ -1,6 +1,6 @@
 (async () => {
     if (window.location.pathname.includes("grades")) {
-        const karakterView = document.querySelector("#s_m_Content_Content_karakterView_KarakterGV");
+        const karakterView = await first("#s_m_Content_Content_karakterView_KarakterGV");
         const karakterTable = karakterView.querySelectorAll("tbody tr td:nth-child(3) div")
         const karakterer = [];
         for (const karakter of karakterTable) {
