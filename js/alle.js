@@ -134,7 +134,7 @@ const getBackend = async (key, toGet, timeout) => {
 	})
 
 	chrome.storage.local.get(["antiAFK"], (result) => {
-		if (result.anyiAFK) {
+		if (result.antiAFK) {
 			setInterval(() => {
 				const afkAlert = document.querySelector("div.ui-dialog.ui-corner-all.ui-widget")
 				if (afkAlert != null){
