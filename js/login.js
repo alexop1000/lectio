@@ -6,7 +6,7 @@
         const autoLoginCheckboxLabel = document.createElement("label");
         autoLoginCheckboxLabel.htmlFor = "autoLoginCheckbox";
         autoLoginCheckboxLabel.innerText = "Auto Login";
-        const passBox = document.getElementById("m_Content_passwordtr").parentElement
+        const passBox = (await first("#m_Content_passwordtr")).parentElement
         passBox.insertBefore(autoLoginCheckbox, passBox.querySelector("tr:nth-child(4)"));
         passBox.insertBefore(autoLoginCheckboxLabel, passBox.querySelector("tr:nth-child(5)"));
         const passwordbox = document.getElementById("password");
