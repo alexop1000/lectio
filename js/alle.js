@@ -91,7 +91,7 @@ const getBackend = async (key, toGet, timeout) => {
 								const skemaBlock = skemaDay.querySelector("div");
 								let theEnd = new Date();
 				
-								const lectures = skemaBlock.querySelectorAll(".s2skemabrik");
+								const lectures = skemaBlock.querySelectorAll(".s2skemabrik:not(.s2cancelled)");
 								for (const lecture of lectures) {
 									if (parseInt(xhttp.responseXML.querySelector(`.s2dayHeader td:nth-child(` + (currentWeekday + 1) + `)`).innerText.split("/")[0].match(/\d+/g)[0]) !== new Date().getDate()) continue;
 									//   const start = lecture.getAttribute("data-additionalinfo").match(/\d+:\d+/)[0]
