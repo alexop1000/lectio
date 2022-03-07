@@ -10,7 +10,7 @@ function stringToColor(str) {
         const isFirefox = (navigator.userAgent.toLowerCase().indexOf("firefox") != -1)
         const skema = await first(".s2skema tbody tr:nth-child(4)");
         const currentWeekday = new Date().getDay();
-        const skemaDay = skema.querySelector(`td:nth-child(${currentWeekday + 1})`);
+        const skemaDay = await first(`.s2skema tbody tr:nth-child(4) td:nth-child(${currentWeekday + 1})`);
         const skemaBlock = skemaDay.querySelector("div");
         const lectures = skemaBlock.querySelectorAll(".s2skemabrik");
         const allLectures = skema.querySelectorAll("td")
