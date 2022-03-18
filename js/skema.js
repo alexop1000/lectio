@@ -45,7 +45,7 @@ function stringToColor(str) {
                 try {
                     // Get "Hold" from the lecture data-additionalinfo attribute
                     const hold = lecture.getAttribute("data-additionalinfo").match(/Hold: (.*)/)?.[1] ?? lecture.getAttribute("data-additionalinfo").match(/Elever: (.*)/)?.[1];
-                    const colored = stringToColor(hold.trim().split(" ").join("_"));
+                    const colored = stringToColor((hold ?? lecture.getAttribute("data-additionalinfo"))?.trim().split(" ").join("_"));
                     // Make yellow color darker
                     const darker = `rgb(${parseInt(colored.substr(1, 2), 16) - 50}, ${parseInt(colored.substr(3, 2), 16) - 50}, ${parseInt(colored.substr(5, 2), 16) - 50})`;
                     // Set the background color of the lecture to the color of the hold

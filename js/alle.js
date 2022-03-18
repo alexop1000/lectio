@@ -143,5 +143,13 @@ const getBackend = async (key, toGet, timeout) => {
 			}, 5000)
 		}
 	})
-
+	first(".lectioToolbar .floatLeft", e => {
+		const btn = document.createElement("div")
+		btn.classList.add("button")
+		btn.innerHTML = `
+		<div class="button">
+		<a href="/lectio/${window.location.href?.split("/")?.[4]}/ledige" data-role="button" tabindex="0" id="m_kontaktLink">Ledige Lokaler</a></div>
+		`
+		e.appendChild(btn)
+	})
 })()

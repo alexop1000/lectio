@@ -2,7 +2,7 @@
     "name": "Lectio Master",
     "description": "Lectio men bedre",
     "manifest_version": 2,
-    "version": "0.5.2",
+    "version": "0.5.5",
     "browser_action": {
         "default_popup": "popup/popup.html"
     },
@@ -15,7 +15,7 @@
     "content_scripts": [
         {
             "matches": ["https://*.lectio.dk/*"],
-            "js": ["js/alle.js", "js/opgaver.js", "js/skema.js", "js/karakter.js", "js/forside.js", "js/skolevalg.js", "/js/login.js", "js/beskeder.js"], 
+            "js": ["js/alle.js", "js/opgaver.js", "js/skema.js", "js/karakter.js", "js/forside.js", "js/skolevalg.js", "/js/login.js", "js/beskeder.js", "js/ledige.js"], 
             "css": ["css/main.css"],
             "web_accessible_resources": ["images/lectio_logo.png"],
             "all_frames": true,

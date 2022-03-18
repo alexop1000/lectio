@@ -19,5 +19,7 @@
         skema.remove();
         forsideBoks.appendChild(skema);
         forsideBoks.appendChild(undervisning);
+
+        
     }
 })()
