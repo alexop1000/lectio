@@ -36,9 +36,13 @@ const formatDate = (date) => {
 	}
 	return dateNums.join("");
 } 
+const sleep = (ms) => {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
 (async () => {
 	if (window.location.href.includes("/OpgaverElev.aspx") || window.location.href.includes("/spoergeskema/spoergeskema_rapport.aspx")) {
 		// Sort the elements in the opgaver table by date with newest first
+		await sleep(1000)
 		sortTable(await first("table"), 3, true);
 		const opgaver = document.querySelectorAll("tr");
 		for (const opgave of opgaver) {
