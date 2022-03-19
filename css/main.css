@@ -109,7 +109,7 @@ body * {
 }
 #name, .text-box, .form-select, .form-control, #SelectedGroupId, select, textarea, #devex-widget, option, input {
     /* height: 28px; */
-    background-color: var(--tri) !important;
+    background-color: var(--txt) !important;
     border-color: #bdbebe !important;
     color: #bdbebe !important;
     border-radius: 8px !important;
