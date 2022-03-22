@@ -45,7 +45,7 @@ pages.alle = (async () => {
 						xhttp.send();
 					})
 				}, 1000 * 60 * 60)
-				const headerNav = await first("header[role='banner'] nav");
+				const headerNav = await first("header[role='banner'] nav .floatLeft");
 				headerNav.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
 				setInterval(() => {
 					const timeUntilDate = response - (new Date())

@@ -19,15 +19,17 @@ table *, .ls-phase-activity{
     /* background-color: var(--tri) !important; */
     background-image: none !important;
 }
-.s2skemabrikcontent {
-    color: white;
-}
 .modulcolor {
     background-image: none !important;
     color: white !important;
 }
 .fricount {
-    position: absolute !important;
-    top: 45px;
-    left: 400px;
+    position: relative;
+    padding: 0;
+    display: inline-block;
+    float: left;
+    min-height: 20px;
+    margin: 0;
+    margin-top: 4px;
+    margin-left: 5px;
 }
