@@ -1,4 +1,4 @@
-(async () => {
+pages.beskeder = (async () => {
     if (window.location.href.includes("/beskeder2.aspx")) {
         // const fGetXML = async (skoleId, elevId) => {
         // 	await getBackend("skemaEnd", async () => {
@@ -62,4 +62,4 @@
         const beskedKatagorier = await first("#s_m_Content_Content_ListGridSelectionTree");
         beskedKatagorier.querySelector("div[lec-node-id='-30'] .TreeNode-title").innerText = "Alle beskeder";
     }
-})()
+})

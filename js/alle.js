@@ -1,3 +1,5 @@
+
+const pages = {}
 const find = async (selector, num) => {
     const found = document.querySelectorAll(selector);
     if (found.length && found.length > (num || 0)) {
@@ -68,7 +70,7 @@ const getBackend = async (key, toGet, timeout) => {
 	});
 }
 
-(async () => {
+pages.alle = (async () => {
 
 	chrome.storage.local.get(["light"], (result) => {
 		if (result.light) document.body.classList.add("light-theme")
@@ -79,7 +81,6 @@ const getBackend = async (key, toGet, timeout) => {
 				const response = await getBackend("skemaEnd", async () => {
 					return new Promise(async res2 => {
 						var xhttpUrl = "https://www.lectio.dk/lectio/" + skoleId + "/SkemaNy.aspx?type=elev&elevid=" + elevId;
-						console.log(xhttpUrl);
 						var xhttp = new XMLHttpRequest();
 						xhttp.onreadystatechange = function () {
 							if (this.readyState == 4 && this.status == 200) {
@@ -152,4 +153,4 @@ const getBackend = async (key, toGet, timeout) => {
 		`
 		e.appendChild(btn)
 	})
-})()
+})
