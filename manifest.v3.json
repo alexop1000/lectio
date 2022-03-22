@@ -1,14 +1,13 @@
 {
     "name": "Lectio Master",
     "description": "Lectio men bedre",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "version": "0.6.0",
-    "browser_action": {
+    "action": {
         "default_popup": "popup/popup.html"
     },
     "background": {
-		"scripts": ["background.js"],
-        "persistent": true
+		"service_worker": "background.js"
     },
     "content_scripts": [
         {
