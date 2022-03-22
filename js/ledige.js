@@ -8,7 +8,7 @@ const formatTime = (time) => {
     string += `${seconds} sekunder`;
     return string;
 }
-(async () => {
+pages.ledige = (async () => {
     if (window.location.href.includes("/ledige")) {
         const skoleTal = window.location.href?.split("/")?.[4]
         if (!skoleTal) return;
@@ -99,4 +99,4 @@ const formatTime = (time) => {
             }
         })
     }
-})();
+})

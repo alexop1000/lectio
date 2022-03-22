@@ -1,4 +1,4 @@
-(async () => {
+pages.login = (async () => {
     if (window.location.href.includes("login")) {
         let autoLoginCheckbox = document.createElement("input");
         autoLoginCheckbox.type = "checkbox";
@@ -67,4 +67,4 @@
             }
         });
     }
-})()
+})

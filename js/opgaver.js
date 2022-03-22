@@ -39,7 +39,7 @@ const formatDate = (date) => {
 const sleep = (ms) => {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
-(async () => {
+pages.opgaver = (async () => {
 	if (window.location.href.includes("/OpgaverElev.aspx") || window.location.href.includes("/spoergeskema/spoergeskema_rapport.aspx")) {
 		// Sort the elements in the opgaver table by date with newest first
 		await sleep(1000)
@@ -91,4 +91,4 @@ const sleep = (ms) => {
 			setInterval(updateCount, 1000);
 		}
 	}
-})()
+})
