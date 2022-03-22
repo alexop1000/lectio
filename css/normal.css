@@ -21,5 +21,9 @@ table *, .ls-phase-activity{
     background-image: none !important;
 }
 .s2skemabrikcontent {
-    color: white
+    color: white;
+}
+.s2skemabrikInnerContainer {
+    background-image: none !important;
+    color: white !important;
 }
