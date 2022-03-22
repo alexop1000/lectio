@@ -75,13 +75,14 @@ const getStorage = async(index, callback) => {
 
 const pGetStorage = async (index) => {
     return new Promise(async (resolve, reject) => {
-        const response = await chrome.storage.sync.get(index, (result) => {
+        // const response = await 
+        chrome.storage.local.get(index, (result) => {
             resolve(result[index]);
         });
         // if firefox
-        if (navigator.userAgent.toLowerCase().indexOf("firefox") != -1) {
-            resolve(response[index]);
-        }
+        // if (navigator.userAgent.toLowerCase().indexOf("firefox") != -1) {
+        //    resolve(response[index]);
+        // }
     });
 }
 
@@ -98,7 +99,7 @@ const localSet = async (key, value) => {
 }
 
 const setStorage = async (index, value) => {
-    chrome.storage.sync.set({ [index]: value });
+    chrome.storage.local.set({ [index]: value });
 }
 
 const defaultSettings = {
