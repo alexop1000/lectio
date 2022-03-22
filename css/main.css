@@ -203,11 +203,8 @@ a.s2bgbox {
     flex-direction: column !important;
     flex-wrap: wrap !important;
 }
-.forsideNonzoomed {
-    height: 114vh !important;
-}
 .forsideZoomed {
-    height: 125vh !important;
+    height: 80vh !important;
 }
 .lectioBorderBot, .activityHeader, .lectioSimpleBox list, .ui-datepicker-header {
     border: none !important;
