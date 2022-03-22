@@ -47,6 +47,7 @@ pages.skema = (async () => {
             // Set the background color of the lecture to the color of the hold
             // and the text color to the darker version of the color
             lecture.querySelector(".s2skemabrikInnerContainer").style.backgroundColor = darker;
+            lecture.querySelector(".s2skemabrikInnerContainer").classList.add("modulcolor");
         } catch (error) {
             console.log(error);
         }
