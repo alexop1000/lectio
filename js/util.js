@@ -74,10 +74,14 @@ const getStorage = async(index, callback) => {
 }
 
 const pGetStorage = async (index) => {
-    return new Promise((resolve, reject) => {
-        chrome.storage.sync.get(index, (result) => {
+    return new Promise(async (resolve, reject) => {
+        const response = await chrome.storage.sync.get(index, (result) => {
             resolve(result[index]);
         });
+        // if firefox
+        if (navigator.userAgent.toLowerCase().indexOf("firefox") != -1) {
+            resolve(response[index]);
+        }
     });
 }
 
