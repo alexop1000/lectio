@@ -3,7 +3,7 @@ const contentScripts = {
     beskeder: { matches: ["/beskeder2.aspx"] },
     forside: { matches: ["/forside.aspx"] },
     karakter: { matches: ["^/grades"] },
-    ledige: { matches: ["^/ledige"] },
+    ledige: { matches: ["/ledige"] },
     login: { matches: ["/login.aspx"] },
     opgaver: { matches: ["/OpgaverElev.aspx", "/spoergeskema/spoergeskema_rapport.aspx"] },
     skema: { matches: ["/SkemaNy.aspx"] },
@@ -14,7 +14,7 @@ const isValidPage = (page) => {
     });
 }
 const injectCss = (page) => {
-    const css = contentScripts[page].css;
+    const css = typeof page == "object" && page || contentScripts[page].css;
     if (css) {
         css.forEach((file) => {
             const link = document.createElement("link");
@@ -32,3 +32,12 @@ Object.keys(contentScripts).forEach(async (page) => {
         injectCss(page);
     }
 });
+if (self === top) {
+    pGetStorage("darkmode", (enabled) => {
+        if (enabled) {
+            injectCss(["/css/main.css"])
+        } else {
+            injectCss(["/css/normal.css"])
+        }
+    });
+}
