@@ -1,0 +1,25 @@
+.forsideBoks {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+}
+.forsideZoomed {
+    height: 80vh !important;
+}
+.hideSkema {
+    display: none !important;
+}
+.noteBtnDiv {
+    padding: 5px;
+}
+.noteBtnDiv:hover {
+    cursor: pointer;
+}
+
+table *, .ls-phase-activity{
+    /* background-color: var(--tri) !important; */
+    background-image: none !important;
+}
+.s2skemabrikcontent {
+    color: white
+}
