@@ -33,11 +33,12 @@ Object.keys(contentScripts).forEach(async (page) => {
     }
 });
 if (self === top) {
-    pGetStorage("darkmode", (enabled) => {
+    
+    getSetting("Dark Mode").then((enabled) => {
         if (enabled) {
-            injectCss(["/css/main.css"])
+            injectCss(["css/main.css"])
         } else {
-            injectCss(["/css/normal.css"])
+            injectCss(["css/normal.css"])
         }
     });
 }

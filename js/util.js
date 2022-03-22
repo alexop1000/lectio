@@ -96,3 +96,39 @@ const localSet = async (key, value) => {
 const setStorage = async (index, value) => {
     chrome.storage.sync.set({ [index]: value });
 }
+
+const defaultSettings = {
+    "Visuals": {
+        "Dark Mode": {
+            default: false,
+        },
+    }
+}
+const getSetting = async (setting) => {
+    return new Promise(async resolve => {
+        let storageSettings = await pGetStorage("settings")
+        if (!storageSettings) {
+            storageSettings = {};
+        }
+        if (storageSettings[setting] == null) {
+            Object.keys(defaultSettings).forEach(async (category) => {
+                if (storageSettings?.[category]?.[setting]) resolve(storageSettings[category][setting]);
+                if (defaultSettings[category][setting]) resolve(defaultSettings[category][setting].default);
+            })
+        } else {
+            resolve(storageSettings[setting])
+        }
+    })
+}
+
+const setSetting = async (setting, value) => {
+    return new Promise(async resolve => {
+        let storageSettings = await pGetStorage("settings")
+        if (!storageSettings) {
+            storageSettings = {};
+        }
+        storageSettings[setting] = value;
+        setStorage("settings", storageSettings)
+        resolve(true)
+    })
+}
