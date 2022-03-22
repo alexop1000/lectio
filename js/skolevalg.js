@@ -1,6 +1,6 @@
 (async () => {
     if (window.location.href == "https://www.lectio.dk/") {
-        let lectioLogo = document.querySelector("tbody tr td img")
+        let lectioLogo = await first("tbody tr td img")
 
         var newLectioLogo = new Image(333, 105);
         
