@@ -5,7 +5,7 @@ const contentScripts = {
     karakter: { matches: ["^/grades"] },
     ledige: { matches: ["^/ledige"] },
     login: { matches: ["/login.aspx"] },
-    opgaver: { matches: ["/OpgaverElev.aspx"] },
+    opgaver: { matches: ["/OpgaverElev.aspx", "/spoergeskema/spoergeskema_rapport.aspx"] },
     skema: { matches: ["/SkemaNy.aspx"] },
 }
 const isValidPage = (page) => {

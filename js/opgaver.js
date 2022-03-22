@@ -40,55 +40,53 @@ const sleep = (ms) => {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
 pages.opgaver = (async () => {
-	if (window.location.href.includes("/OpgaverElev.aspx") || window.location.href.includes("/spoergeskema/spoergeskema_rapport.aspx")) {
 		// Sort the elements in the opgaver table by date with newest first
-		await sleep(1000)
-		sortTable(await first("table"), 3, true);
-		const opgaver = document.querySelectorAll("tr");
-		for (const opgave of opgaver) {
-			let date = opgave.querySelector("td:nth-child(4)")
-			if (!date) continue;
-			//makes sure only the text of first child is used
-			child = date.firstChild;
-			texts = [];
-			while (child) {
-				if (child.nodeType == 3) {
-					texts.push(child.data);
-				}
-				child = child.nextSibling;
+	await sleep(1000)
+	sortTable(await first("table"), 3, true);
+	const opgaver = document.querySelectorAll("tr");
+	for (const opgave of opgaver) {
+		let date = opgave.querySelector("td:nth-child(4)")
+		if (!date) continue;
+		//makes sure only the text of first child is used
+		child = date.firstChild;
+		texts = [];
+		while (child) {
+			if (child.nodeType == 3) {
+				texts.push(child.data);
 			}
-			date = texts.join("");
-			
-
-			const origDate = date;
-			date = formatDate(date);
-
-			const updateCount = () => {
-				const timeUntilDate = new Date(date).getTime() - new Date().getTime();
-
-				if (timeUntilDate > 0) {
-					let htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60 * 24))} dage, ${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer og ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter`;
-					if (timeUntilDate < 1000 * 60 * 60 * 24) {
-						htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60))} timer, ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
-					}
-					if (timeUntilDate < 1000 * 60 * 60) {
-						htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
-					}
-					// Make it red if the time until date is less than 1 day
-					if (timeUntilDate < 1000 * 60 * 60 * 24) {
-						htmlToApply = `<span style="color: red">${htmlToApply}</span>`;
-					}
-					// Make it orange if the time until date is less than 4 days
-					if (timeUntilDate < 1000 * 60 * 60 * 24 * 4) {
-						htmlToApply = `<span style="color: orange">${htmlToApply}</span>`;
-					} else {
-						htmlToApply = `<span style="color: green">${htmlToApply}</span>`;
-					}
-					opgave.querySelector("td:nth-child(4)").innerHTML = `${origDate}<br>${htmlToApply}`;
-				}
-			}
-			updateCount();
-			setInterval(updateCount, 1000);
+			child = child.nextSibling;
 		}
+		date = texts.join("");
+		
+
+		const origDate = date;
+		date = formatDate(date);
+
+		const updateCount = () => {
+			const timeUntilDate = new Date(date).getTime() - new Date().getTime();
+
+			if (timeUntilDate > 0) {
+				let htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60 * 24))} dage, ${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer og ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter`;
+				if (timeUntilDate < 1000 * 60 * 60 * 24) {
+					htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60))} timer, ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
+				}
+				if (timeUntilDate < 1000 * 60 * 60) {
+					htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
+				}
+				// Make it red if the time until date is less than 1 day
+				if (timeUntilDate < 1000 * 60 * 60 * 24) {
+					htmlToApply = `<span style="color: red">${htmlToApply}</span>`;
+				}
+				// Make it orange if the time until date is less than 4 days
+				if (timeUntilDate < 1000 * 60 * 60 * 24 * 4) {
+					htmlToApply = `<span style="color: orange">${htmlToApply}</span>`;
+				} else {
+					htmlToApply = `<span style="color: green">${htmlToApply}</span>`;
+				}
+				opgave.querySelector("td:nth-child(4)").innerHTML = `${origDate}<br>${htmlToApply}`;
+			}
+		}
+		updateCount();
+		setInterval(updateCount, 1000);
 	}
 })
