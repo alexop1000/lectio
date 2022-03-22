@@ -15,7 +15,6 @@
 .noteBtnDiv:hover {
     cursor: pointer;
 }
-
 table *, .ls-phase-activity{
     /* background-color: var(--tri) !important; */
     background-image: none !important;
@@ -23,7 +22,12 @@ table *, .ls-phase-activity{
 .s2skemabrikcontent {
     color: white;
 }
-.s2skemabrikInnerContainer {
+.modulcolor {
     background-image: none !important;
     color: white !important;
+}
+.fricount {
+    position: absolute !important;
+    top: 45px;
+    left: 400px;
 }
