@@ -49,6 +49,7 @@ pages.alle = (async () => {
 				headerNav.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
 				setInterval(() => {
 					const timeUntilDate = response - (new Date())
+					
 					let htmlToApply = `${Math.floor(timeUntilDate / (1000 * 60 * 60 * 24))} dage, ${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer og ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter`;
 					if (timeUntilDate < 1000 * 60 * 60 * 24) {
 						htmlToApply = `${Math.floor(timeUntilDate / (1000 * 60 * 60))} timer, ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
