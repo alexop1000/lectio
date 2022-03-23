@@ -3,9 +3,26 @@ const formatTime = (time) => {
     const minutes = Math.floor(time / (1000 * 60) % 60);
     const seconds = Math.floor(time / 1000 % 60);
     let string = "";
-    if (hours > 0) string += `${hours} time(r), `;
-    if (minutes > 0) string += `${minutes} minutter og `;
-    string += `${seconds} sekunder`;
+    //shows "timer" as "time" if its value is one
+    if (hours == 1) {
+        string += `${hours} time, `;
+    } else if (hours > 0) {
+        string += `${hours} timer, `;
+    }
+
+    //shows "minutter" as "minut" if its value is one
+    if (minutes == 1) {
+        string += `${minutes} minut og `;
+    } else if (minutes > 0) {
+        string += `${minutes} minutter og `;
+    } 
+
+    //shows "sekunder" as "sekund" if its value is one
+    if (seconds == 1) {
+        string += `${seconds} sekund`;
+    } else {
+        string += `${seconds} sekunder`;
+    }
     return string;
 }
 pages.ledige = (async () => {
