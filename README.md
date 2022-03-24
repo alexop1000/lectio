@@ -1,4 +1,4 @@
-# lectio
+# Lectio Master
 Dette er en extension beregnet til chrome, edge, firefox etc. Den er beregnet til brug på den danske undervisnings platform Lectio.
 Nuværende er der disse funktioner:
 - Opgave countdown
@@ -8,6 +8,8 @@ Nuværende er der disse funktioner:
 - AntiAFK
 - Auto login
 - Bedre lyst tema / mørkt tema
-- Kategori til lærer beskeder
+- Kategori til lærer / elev beskeder
+- Visning af ledige lokaler
+- Nedtælling til man har fri
 
 Hvis du vil tilføje flere features så kan du indsende en pull request. Vi vil derefter gennemgå det og merge hvis det ser godt ud.
