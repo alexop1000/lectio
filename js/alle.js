@@ -49,14 +49,30 @@ pages.alle = (async () => {
 				headerNav.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
 				setInterval(() => {
 					const timeUntilDate = response - (new Date())
+					let htmlToApply = "";
+					//shows "timer" as "time" if its value is one
+    				if (Math.floor(timeUntilDate / (1000 * 60 * 60) % 24) == 1) {
+        				htmlToApply += `${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} time, `;
+    				} else if (Math.floor(timeUntilDate / (1000 * 60 * 60) % 24) > 0) {
+        				htmlToApply += `${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer, `;
+    				}
+
+    				//shows "minutter" as "minut" if its value is one
+    				if (Math.floor(timeUntilDate / (1000 * 60) % 60) == 1) {
+        				htmlToApply += `${Math.floor(timeUntilDate / (1000 * 60) % 60)} minut og `;
+    				} else if (Math.floor(timeUntilDate / (1000 * 60) % 60) > 0) {
+        				htmlToApply += `${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og `;
+    				} 
 					
-					let htmlToApply = `${Math.floor(timeUntilDate / (1000 * 60 * 60 * 24))} dage, ${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer og ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter`;
-					if (timeUntilDate < 1000 * 60 * 60 * 24) {
-						htmlToApply = `${Math.floor(timeUntilDate / (1000 * 60 * 60))} timer, ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
+					
+					//shows "sekunder" as "sekund" if its value is one
+					if (Math.floor(timeUntilDate / 1000 % 60) == 1) {
+							htmlToApply += `${Math.floor(timeUntilDate / 1000 % 60)} sekund`;
+					} else {
+							htmlToApply += `${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
 					}
-					if (timeUntilDate < 1000 * 60 * 60) {
-						htmlToApply = `${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
-					}
+					
+					 
 					document.getElementById("fritid").innerText = htmlToApply;
 				}, 1000)
 			}
