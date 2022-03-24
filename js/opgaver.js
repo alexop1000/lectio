@@ -66,13 +66,7 @@ pages.opgaver = (async () => {
 			const timeUntilDate = new Date(date).getTime() - new Date().getTime();
 
 			if (timeUntilDate > 0) {
-				let htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60 * 24))} dage, ${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer og ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter`;
-				if (timeUntilDate < 1000 * 60 * 60 * 24) {
-					htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60 * 60))} timer, ${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
-				}
-				if (timeUntilDate < 1000 * 60 * 60) {
-					htmlToApply = `\n${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og ${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
-				}
+				let htmlToApply = formatTime(timeUntilDate);
 				// Make it red if the time until date is less than 1 day
 				if (timeUntilDate < 1000 * 60 * 60 * 24) {
 					htmlToApply = `<span style="color: red">${htmlToApply}</span>`;

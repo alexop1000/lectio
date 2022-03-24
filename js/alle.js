@@ -49,30 +49,7 @@ pages.alle = (async () => {
 				headerNav.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
 				setInterval(() => {
 					const timeUntilDate = response - (new Date())
-					let htmlToApply = "";
-					//shows "timer" as "time" if its value is one
-    				if (Math.floor(timeUntilDate / (1000 * 60 * 60) % 24) == 1) {
-        				htmlToApply += `${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} time, `;
-    				} else if (Math.floor(timeUntilDate / (1000 * 60 * 60) % 24) > 0) {
-        				htmlToApply += `${Math.floor(timeUntilDate / (1000 * 60 * 60) % 24)} timer, `;
-    				}
-
-    				//shows "minutter" as "minut" if its value is one
-    				if (Math.floor(timeUntilDate / (1000 * 60) % 60) == 1) {
-        				htmlToApply += `${Math.floor(timeUntilDate / (1000 * 60) % 60)} minut og `;
-    				} else if (Math.floor(timeUntilDate / (1000 * 60) % 60) > 0) {
-        				htmlToApply += `${Math.floor(timeUntilDate / (1000 * 60) % 60)} minutter og `;
-    				} 
-					
-					
-					//shows "sekunder" as "sekund" if its value is one
-					if (Math.floor(timeUntilDate / 1000 % 60) == 1) {
-							htmlToApply += `${Math.floor(timeUntilDate / 1000 % 60)} sekund`;
-					} else {
-							htmlToApply += `${Math.floor(timeUntilDate / 1000 % 60)} sekunder`;
-					}
-					
-					 
+					let htmlToApply = formatTime(timeUntilDate);
 					document.getElementById("fritid").innerText = htmlToApply;
 				}, 1000)
 			}

@@ -137,3 +137,39 @@ const setSetting = async (setting, value) => {
         resolve(true)
     })
 }
+//for formatting timers like fricounter, or "ledig"-counter 
+const formatTime = (time) => {
+    const days = Math.floor(time / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(time  / (1000 * 60 * 60) % 24);
+    const minutes = Math.floor(time / (1000 * 60) % 60);
+    const seconds = Math.floor(time / 1000 % 60);
+    let string = "";
+    //shows "dage" as "dag" if its value is one
+    if (days == 1) {
+        string += `${days} dag, `;
+    } else if (days > 0) {
+        string += `${days} dage, `;
+    }
+
+    //shows "timer" as "time" if its value is one
+    if (hours == 1) {
+        string += `${hours} time, `;
+    } else if (hours > 0) {
+        string += `${hours} timer, `;
+    }
+
+    //shows "minutter" as "minut" if its value is one
+    if (minutes == 1) {
+        string += `${minutes} minut og `;
+    } else if (minutes > 0) {
+        string += `${minutes} minutter og `;
+    } 
+
+    //shows "sekunder" as "sekund" if its value is one
+    if (seconds == 1) {
+        string += `${seconds} sekund`;
+    } else {
+        string += `${seconds} sekunder`;
+    }
+    return string;
+}
