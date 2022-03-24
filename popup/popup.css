@@ -1,0 +1,25 @@
+:root {
+    --primary-color: #ffffff;
+    --background-color: #393b3d;
+    --seperator-color: rgb(172, 172, 172);
+}
+body {
+    margin: 5px;
+    min-width: 257px;
+    min-height: 250px;
+    overflow-x: hidden;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    font-family: HCo Gotham SSm, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: large;
+}
+ul {
+    padding: 0;
+}
+li {
+    list-style-type: none;
+}

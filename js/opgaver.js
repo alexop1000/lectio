@@ -41,6 +41,8 @@ const sleep = (ms) => {
 }
 pages.opgaver = (async () => {
 		// Sort the elements in the opgaver table by date with newest first
+	const isEnabled = await getSetting("Opgave Funktioner");
+	if (!isEnabled) return;
 	await sleep(1000)
 	sortTable(await first("table"), 3, true);
 	const opgaver = document.querySelectorAll("tr");

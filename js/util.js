@@ -107,6 +107,20 @@ const defaultSettings = {
         "Dark Mode": {
             default: false,
         },
+    },
+    "General": {
+        "Fri Counter": {
+            default: false,
+        },
+        "Anti AFK": {
+            default: false,
+        },
+        "Auto Login": {
+            default: false,
+        },
+        "Opgave Funktioner": {
+            default: false,
+        },
     }
 }
 const getSetting = async (setting) => {
