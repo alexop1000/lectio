@@ -121,6 +121,9 @@ const defaultSettings = {
         "Opgave Funktioner": {
             default: false,
         },
+        "Skema Farver": {
+            default: false,
+        },
     }
 }
 const getSetting = async (setting) => {

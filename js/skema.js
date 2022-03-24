@@ -35,23 +35,25 @@ pages.skema = (async () => {
     const isFirefox = (navigator.userAgent.toLowerCase().indexOf("firefox") != -1)
     const skema = await first(".s2skema tbody tr:nth-child(4)");
     const currentWeekday = new Date().getDay();
-    console.log(currentWeekday);
+    const skemaFarver = await getSetting("Skema Farver");
     await first(".s2skema tbody tr:nth-child(4) td:nth-child(2)");
-    on(".s2skema tbody tr:nth-child(4) td .s2skemabrik", async (lecture, i) => {
-        try {
-            // Get "Hold" from the lecture data-additionalinfo attribute
-            const hold = lecture.getAttribute("data-additionalinfo").match(/Hold: (.*)/)?.[1] ?? lecture.getAttribute("data-additionalinfo").match(/Elever: (.*)/)?.[1];
-            const colored = stringToColor((hold ?? lecture.getAttribute("data-additionalinfo"))?.trim().split(" ").join("_"));
-            // Make yellow color darker
-            const darker = `rgb(${parseInt(colored.substr(1, 2), 16) - 50}, ${parseInt(colored.substr(3, 2), 16) - 50}, ${parseInt(colored.substr(5, 2), 16) - 50})`;
-            // Set the background color of the lecture to the color of the hold
-            // and the text color to the darker version of the color
-            lecture.querySelector(".s2skemabrikInnerContainer").style.backgroundColor = darker;
-            lecture.querySelector(".s2skemabrikInnerContainer").classList.add("modulcolor");
-        } catch (error) {
-            console.log(error);
-        }
-    });
+    if (skemaFarver) {
+        on(".s2skema tbody tr:nth-child(4) td .s2skemabrik", async (lecture, i) => {
+            try {
+                // Get "Hold" from the lecture data-additionalinfo attribute
+                const hold = lecture.getAttribute("data-additionalinfo").match(/Hold: (.*)/)?.[1] ?? lecture.getAttribute("data-additionalinfo").match(/Elever: (.*)/)?.[1];
+                const colored = stringToColor((hold ?? lecture.getAttribute("data-additionalinfo"))?.trim().split(" ").join("_"));
+                // Make yellow color darker
+                const darker = `rgb(${parseInt(colored.substr(1, 2), 16) - 50}, ${parseInt(colored.substr(3, 2), 16) - 50}, ${parseInt(colored.substr(5, 2), 16) - 50})`;
+                // Set the background color of the lecture to the color of the hold
+                // and the text color to the darker version of the color
+                lecture.querySelector(".s2skemabrikInnerContainer").style.backgroundColor = darker;
+                lecture.querySelector(".s2skemabrikInnerContainer").classList.add("modulcolor");
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    }
 
     const skemaDay = await first(`.s2skema tbody tr:nth-child(4) td:nth-child(${currentWeekday + 1})`);
     const skemaBlock = skemaDay.querySelector("div");
