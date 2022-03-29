@@ -173,6 +173,8 @@ const formatTime = (time) => {
         string += `${hours} time, `;
     } else if (hours > 0) {
         string += `${hours} timer, `;
+    } else if (days > 0) {
+        string += ` og `;
     }
 
     //shows "minutter" as "minut" if its value is one
@@ -180,7 +182,9 @@ const formatTime = (time) => {
         string += `${minutes} minut og `;
     } else if (minutes > 0) {
         string += `${minutes} minutter og `;
-    } 
+    } else if (hours > 0||days > 0) {
+        string += ` og `;
+    }
 
     //shows "sekunder" as "sekund" if its value is one
     if (seconds == 1) {
