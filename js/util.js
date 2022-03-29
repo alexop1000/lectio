@@ -153,17 +153,21 @@ const formatTime = (time) => {
 
     //shows "timer" as "time" if its value is one
     if (hours == 1) {
-        string += `${hours} time, `;
+        string += `${hours} time`;
     } else if (hours > 0) {
-        string += `${hours} timer, `;
+        string += `${hours} timer`;
+    } else if (days > 0) {
+        string += `, og `;
     }
 
     //shows "minutter" as "minut" if its value is one
     if (minutes == 1) {
-        string += `${minutes} minut og `;
+        string += `, ${minutes} minut og `;
     } else if (minutes > 0) {
-        string += `${minutes} minutter og `;
-    } 
+        string += `, ${minutes} minutter og `;
+    } else if (hours > 0||days > 0) {
+        string += `, og `;
+    }
 
     //shows "sekunder" as "sekund" if its value is one
     if (seconds == 1) {
