@@ -157,7 +157,7 @@ const formatTime = (time) => {
     } else if (hours > 0) {
         string += `${hours} timer`;
     } else if (days > 0) {
-        string += `, og `;
+        string += ` og `;
     }
 
     //shows "minutter" as "minut" if its value is one
