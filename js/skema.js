@@ -114,7 +114,8 @@ pages.skema = (async () => {
             // Check if the current time is within the lecture
             let currentTime = new Date();
             if (isFirefox) {
-                currentTime = new Date(currentTime + "-01:00").getTime();
+                //currentTime = new Date(currentTime + "-01:00").getTime(); // vintertid
+                currentTime = new Date().getTime(); // sommertid
             }
             else{
                 currentTime = new Date().getTime();
