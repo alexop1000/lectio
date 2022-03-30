@@ -1,5 +1,8 @@
 pages.ledige = (async () => {
+
+
     const skoleTal = window.location.href?.split("/")?.[4]
+
     if (!skoleTal) return;
     const fGetXML = async (xhttpUrl) => {
         return new Promise(async res => {
@@ -14,6 +17,10 @@ pages.ledige = (async () => {
             xhttp.send();
         })
     }
+    //if (!document?.querySelector("#m_outerContentFrameDiv")) {
+    //    await sleep(100);
+    //}
+
     fGetXML("https://www.lectio.dk/lectio/" + skoleTal + "/FindSkema.aspx?type=lokale").then(async xml => {
         const lokaler = [...xml.querySelector(".ls-columnlist").childNodes].map(e => [e.textContent, e.firstChild.href])
         const ledigeholder = document.createElement("section")
@@ -26,6 +33,7 @@ pages.ledige = (async () => {
                 
             </div>
         `
+        await first("#m_HeaderContent_pageHeader");        
         document.querySelector("#m_outerContentFrameDiv").innerHTML = ``
         document.querySelector("#m_outerContentFrameDiv").appendChild(ledigeholder)
         let i = 0
@@ -82,6 +90,7 @@ pages.ledige = (async () => {
                 setInterval(() => {
                     const nextOccupiedElement = document.querySelector(`#content-${newI} strong`)
                     nextOccupiedElement.textContent = `- Optaget om ${formatTime(nextOccupied - Date.now())}`
+                    document.title = "Ledige Lokaler"
                 }, 1000)
             }
 
