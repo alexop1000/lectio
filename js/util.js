@@ -189,7 +189,7 @@ const formatTime = (time) => {
     //shows "sekunder" as "sekund" if its value is one
     if (seconds == 1) {
         string += `${seconds} sekund`;
-    } else {
+    } else if (seconds > -1){
         string += `${seconds} sekunder`;
     }
     return string;
