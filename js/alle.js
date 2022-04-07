@@ -46,12 +46,19 @@ pages.alle = (async () => {
 				})
 			}, 1000 * 60 * 60)
 			const headerNav = await first("header[role='banner'] nav .floatLeft");
-			headerNav.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
+			//makes fricounter only display "om" when appropriate  
+			const timeUntilDate = response - (new Date())
+			if (timeUntilDate > 0) {
+				headerNav.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
+			} else {
+				headerNav.innerHTML += `<p class="fricount">Du har fri <strong id="fritid"></strong> <p>`;
+			}
+			//gets the time which fricounter displays
 			setInterval(() => {
-				const timeUntilDate = response - (new Date())
-				let htmlToApply = formatTime(timeUntilDate);
+				const timeUntilDate2 = response - (new Date())
+				let htmlToApply = formatTime(timeUntilDate2);
 				document.getElementById("fritid").innerText = htmlToApply;
-			}, 1000)
+			}, 1000)	
 		}
 	
 		const location = window.location.href;
