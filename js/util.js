@@ -194,3 +194,4 @@ const formatTime = (time) => {
     }
     return string;
 }
+const qs = (selector, element = document) => element.querySelector(selector);

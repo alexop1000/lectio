@@ -33,3 +33,17 @@ table *, .ls-phase-activity{
     margin-top: 4px;
     margin-left: 5px;
 }
+#s_m_Content_Content_SkemaNyMedNavigation_skema_skematabel {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+#contenttable {
+    width: 5000px; /* Why?! */
+}
+.s2skemabrikcontainer.lec-context-menu-instance {
+    width: 100% !important;
+    overflow: hidden;
+}
+.s2brik.lec-context-menu-instance {
+    width: 94% !important;
+}

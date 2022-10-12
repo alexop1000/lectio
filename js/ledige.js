@@ -1,5 +1,5 @@
 pages.ledige = (async () => {
-
+    //!VIGTIGT SKIFT TIL AT BRUGE DETTE https://www.lectio.dk/lectio/681/SkemaAvanceret.aspx?type=aktuelleallelokaler&nosubnav=1&prevurl=FindSkemaAdv.aspx
 
     const skoleTal = window.location.href?.split("/")?.[4]
 
@@ -17,12 +17,9 @@ pages.ledige = (async () => {
             xhttp.send();
         })
     }
-    //if (!document?.querySelector("#m_outerContentFrameDiv")) {
-    //    await sleep(100);
-    //}
 
     fGetXML("https://www.lectio.dk/lectio/" + skoleTal + "/FindSkema.aspx?type=lokale").then(async xml => {
-        const lokaler = [...xml.querySelector(".ls-columnlist").childNodes].map(e => [e.textContent, e.firstChild.href])
+        const lokaler = [...xml.querySelector("#m_Content_listecontainer > ul").childNodes].map(e => [e.textContent, qs("a").href])
         const ledigeholder = document.createElement("section")
         ledigeholder.className = "island  mediumBlock mediumBlockHeight"
         ledigeholder.innerHTML = `

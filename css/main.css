@@ -152,6 +152,7 @@ table *, .ls-phase-activity{
 table, tbody, tr, td, .s2skemabrikcontainer, .s2module-bg {
     border-collapse: collapse !important;
     background-color: var(--tri) !important;
+    width: 100% !important;
 }
 /* td {
     padding: 5px !important;
@@ -223,6 +224,7 @@ input[type="checkbox"]:checked:before {
 }
 #s_m_Content_Content_SkemaNyMedNavigation_skema_skematabel {
     width: 100% !important;
+    max-width: 100% !important;
 }
 #studieTabel td, #printareaWishlist th {
     color:var(--txt) !important;
@@ -238,4 +240,7 @@ input[type="checkbox"]:checked:before {
     position: absolute;
     top: 45px;
     left: 400px;
+}
+#contenttable {
+    width: 5000px; /* Why?! */
 }

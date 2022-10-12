@@ -45,10 +45,16 @@ pages.alle = (async () => {
 					xhttp.send();
 				})
 			}, 1000 * 60 * 60)
+			if (response - (new Date()) < 0) return;
 			const headerNav = await first("header[role='banner'] nav .floatLeft");
-			headerNav.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid"></strong> <p>`;
-			setInterval(() => {
+			headerNav.innerHTML += `<p class="fricount">Du har fri om <strong id="fritid">${formatTime(response - (new Date()))}</strong> <p>`;
+			const interval = setInterval(() => {
 				const timeUntilDate = response - (new Date())
+				if (timeUntilDate < 0) {
+					clearInterval(interval)
+					headerNav.querySelector(".fricount").remove()
+					return
+				}
 				let htmlToApply = formatTime(timeUntilDate);
 				document.getElementById("fritid").innerText = htmlToApply;
 			}, 1000)
