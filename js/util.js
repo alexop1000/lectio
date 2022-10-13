@@ -1,5 +1,5 @@
 const pages = {};
-const find = async (selector, num) => {
+const find = async (selector, num, element = document) => {
     const found = document.querySelectorAll(selector);
     if (found.length && found.length > (num || 0)) {
         return num ? found[num] : found;
@@ -16,7 +16,7 @@ const find = async (selector, num) => {
                 }
             });
         });
-        observer.observe(document, { childList: true, subtree: true });
+        observer.observe(element, { childList: true, subtree: true });
     });
 };
 

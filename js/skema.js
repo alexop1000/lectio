@@ -85,11 +85,12 @@ pages.skema = (async () => {
     const skema = await first(".s2skema tbody tr:nth-child(4)");
     const currentWeekday = new Date().getDay();
     const skemaFarver = await getSetting("Skema Farver");
-    await first(".s2skema tbody tr:nth-child(4) td:nth-child(2)");
+    await first(".s2skema tbody tr:nth-child(4) td:nth-child(2) .s2skemabrikInnerContainer");
     if (skemaFarver) {
         const savedColors = (await localGet("skemaFarver")) || {};
-        on(".s2skema tbody tr:nth-child(4) td .s2skemabrik", async (lecture, i) => {
+        on(".s2brik.lec-context-menu-instance", async (lecture, i) => {
             try {
+                await find(".s2brik.lec-context-menu-instance", 1, lecture);
                 // Get "Hold" from the lecture data-additionalinfo attribute
                 const hold = lecture.getAttribute("data-additionalinfo").match(/Hold: (.*)/)?.[1];
                 const getIndex = () => {
@@ -107,24 +108,29 @@ pages.skema = (async () => {
                 let holdIndex = await getIndex();
                 const colored = savedColors[hold] ?? "#fff";
                 if(!savedColors[hold]) {
-                    const color = RGBToHex((90 + (holdIndex+1) % 5 * 40), (130 + (holdIndex+1) % 3 * 60), (150 + (holdIndex+1) % 2 * 100));
+                    let color = RGBToHex((90 + (holdIndex+1) % 5 * 40), (130 + (holdIndex+1) % 3 * 60), (150 + (holdIndex+1) % 2 * 100));
                     // if a lesson already has that color, try again
-                    if(Object.values(savedColors).includes(color)) {
-                        return;
+                    let lastIndex = holdIndex;
+                    while(Object.values(savedColors).includes(color)) {
+                        lastIndex ++;
+                        color = RGBToHex((90 + (lastIndex) % 5 * 40), (130 + (lastIndex) % 3 * 60), (150 + (lastIndex) % 2 * 100));
+                        if (lastIndex > 100) {
+                            color = "#fff";
+                            break;
+                        }
                     }
                     savedColors[hold] = color;
-                    await localSet("skemaFarver", savedColors);
+                    localSet("skemaFarver", savedColors);
                 }
                 const darker = lightenDarkenColor(colored, -50);
-                //const colored = stringToColor((hold ?? lecture.getAttribute("data-additionalinfo"))?.trim());
-                //const darker = `rgb(${parseInt(colored.substr(1, 2), 16) - 50}, ${parseInt(colored.substr(3, 2), 16) - 50}, ${parseInt(colored.substr(5, 2), 16) - 50})`;
-
-                lecture.querySelector(".s2skemabrikInnerContainer").style.backgroundColor = darker;
-                lecture.querySelector(".s2skemabrikInnerContainer").classList.add("modulcolor");
+                const inner = lecture.querySelector(".s2skemabrikInnerContainer")
+                if (!inner) return;
+                inner.style.backgroundColor = darker;
+                inner.classList.add("modulcolor");
 
                 const changed = lecture.querySelector(".s2changed")
                 if (changed) {
-                    changed.style.color = invertColor(colored);
+                    changed.style = `color: ${lightenDarkenColor(invertColor(darker), 80)};`
                 }
             } catch (error) {
                 console.log(error);

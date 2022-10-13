@@ -47,3 +47,6 @@ table *, .ls-phase-activity{
 .s2brik.lec-context-menu-instance {
     width: 94% !important;
 }
+.s2skemabrikcontent {
+    font-size: small;
+}

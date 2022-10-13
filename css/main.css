@@ -17,6 +17,9 @@ html {
     --txt: rgb(0, 0, 0) !important;
     --lnk: #1b5c9e !important;
 }
+body {
+    overflow-x:hidden;
+}
 body, .outerContentFrame, .ls-master-footer, .ls-master-container2 {
     background-color: var(--bg) !important;
     font-family: HCo Gotham SSm,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif !important;
@@ -152,7 +155,6 @@ table *, .ls-phase-activity{
 table, tbody, tr, td, .s2skemabrikcontainer, .s2module-bg {
     border-collapse: collapse !important;
     background-color: var(--tri) !important;
-    width: 100% !important;
 }
 /* td {
     padding: 5px !important;
@@ -240,7 +242,4 @@ input[type="checkbox"]:checked:before {
     position: absolute;
     top: 45px;
     left: 400px;
-}
-#contenttable {
-    width: 5000px; /* Why?! */
 }
