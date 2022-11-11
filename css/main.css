@@ -49,6 +49,9 @@ td {
 .ls-master-container1, .ls-master-container2 {
     width: 100% !important;
 }
+
+
+
 #s_m_outerContentFrameDiv {
     display: grid;
     justify-content: center;
@@ -255,6 +258,13 @@ input[type="checkbox"]:checked:before {
     background-image: none !important;
     border: none !important;
 }
+.ls-subnav1 .ls-subnav-active a{
+    border-radius: 5px;
+    border-bottom: var(--tri) !important;
+    color: var(--qua) !important;
+    /*background-color: var(--tri) !important;*/
+}
+
 .fricount {
     position: absolute;
     top: 45px;
