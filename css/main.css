@@ -6,6 +6,7 @@ html {
     --pri: #1b1d1e;
     --sec: #191b1d;
     --tri: #1b1d1e;
+    --qua:  #2f2f2f;
     --txt: #fff;
     --lnk: #fff;
 }
@@ -34,9 +35,7 @@ a[href] {
     background-color: var(--sec) !important;
     background-image: none !important;
 }
-.islandHeaderContainer{
-    background-image: none !important;
-}
+
 #contenttable > div:nth-child(2) > section:nth-child(2){
     background-color: var(--sec) !important;
     background-image: none !important;
@@ -67,10 +66,11 @@ body * {
     color: var(--txt) !important;
     background: transparent !important;
 }
-.islandHeaderContainer {
-    background-color: var(--pri) !important;
-    border: none !important;
+.island,  .mediumBlock, .mediumBlockHeight{
+    background-color: var(--tri) !important;
 }
+
+
 .islandContent {
     background-color: var(--sec) !important;
 }
@@ -249,6 +249,11 @@ input[type="checkbox"]:checked:before {
 }
 #printareaWishlist .infoText {
     color: #817f7f !important;
+}
+.islandHeaderContainer{
+    background-color: var(--qua) !important;
+    background-image: none !important;
+    border: none !important;
 }
 .fricount {
     position: absolute;
