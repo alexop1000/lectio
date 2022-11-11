@@ -19,12 +19,13 @@
                 "js/karakter.js", 
                 "js/forside.js", 
                 "js/skolevalg.js", 
-                "/js/login.js", 
+                "js/login.js", 
                 "js/beskeder.js", 
                 "js/ledige.js",
+                "js/indstillinger.js",
                 "inject.js"
             ], 
-            "css": ["css/main.css"],
+            "css": ["css/alle.css"],
             "web_accessible_resources": ["images/lectio_logo.png"],
             "all_frames": true,
             "run_at": "document_start"

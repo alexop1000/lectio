@@ -82,4 +82,17 @@ pages.alle = (async () => {
 		`
 		e.appendChild(btn)
 	})
+
+	// Lectio master settings knap i navbar
+	first("#s_m_HeaderContent_subnavigator_generic_tr", async e => {
+		await sleep(500);
+		const settingsHolder = document.createElement("div")
+		settingsHolder.className = "buttonlink"
+		settingsHolder.innerHTML = `<a href="/lectio/${window.location.href?.split("/")?.[4]}/lectio_master?elevid=42656035958" data-role="button" tabindex="0">Lectio Master</a>`
+		e.appendChild(settingsHolder)
+		settingsHolder.addEventListener("click", () => {
+			qs(".buttonlink .ls-subnav-active").classList.remove("ls-subnav-active")
+			settingsHolder.classList.add("ls-subnav-active")
+		})
+	})
 })

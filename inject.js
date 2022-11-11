@@ -7,6 +7,7 @@ const contentScripts = {
     login: { matches: ["/login.aspx"] },
     opgaver: { matches: ["/OpgaverElev.aspx", "/spoergeskema/spoergeskema_rapport.aspx"] },
     skema: { matches: ["/SkemaNy.aspx"] },
+    indstillinger: { matches: ["/lectio_master"] },
 }
 const isValidPage = (page) => {
     return contentScripts?.[page].matches.some((match) => {

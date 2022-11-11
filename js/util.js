@@ -103,28 +103,34 @@ const setStorage = async (index, value) => {
 }
 
 const defaultSettings = {
-    "Visuals": {
-        "Dark Mode": {
-            default: false,
-        },
-    },
     "General": {
         "Fri Counter": {
+            description: "Viser hvor lang tid der går før du har fri",
             default: false,
         },
         "Anti AFK": {
+            description: "Sørger for at du ikke bliver logged af mens du er AFK",
             default: false,
         },
         "Auto Login": {
+            description: "Logger dig automatisk ind på siden",
             default: false,
         },
         "Opgave Funktioner": {
+            description: "Viser countdown til at opgaven skal afleveres og sorterer således",
+            default: false,
+        },
+    },
+    "Visuals": {
+        "Dark Mode": {
+            description: "Mørkt tema til siden",
             default: false,
         },
         "Skema Farver": {
+            description: "Giver skemaet farver",
             default: false,
         },
-    }
+    },
 }
 const getSetting = async (setting) => {
     return new Promise(async resolve => {
