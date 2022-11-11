@@ -29,6 +29,18 @@ a[href] {
     background-image: none !important;
     background-color: transparent !important;
 }
+
+#contenttable > div:nth-child(1) > section:nth-child(2){
+    background-color: var(--sec) !important;
+    background-image: none !important;
+}
+.islandHeaderContainer{
+    background-image: none !important;
+}
+#contenttable > div:nth-child(2) > section:nth-child(2){
+    background-color: var(--sec) !important;
+    background-image: none !important;
+}
 td {
     
     font-family: HCo Gotham SSm,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif !important;
