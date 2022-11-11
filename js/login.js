@@ -30,12 +30,8 @@ pages.login = (async () => {
             passwordbox.value = result.password;
             // Try logging in by clicking #m_Content_submitbtn2
             sleep(500).then(() => {
-            document.getElementById("m_Content_submitbtn2").click();
+                document.getElementById("m_Content_submitbtn2").click();
             });
         }
     });
-
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
 })
