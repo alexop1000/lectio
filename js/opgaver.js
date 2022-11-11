@@ -36,9 +36,6 @@ const formatDate = (date) => {
 	}
 	return dateNums.join("");
 } 
-const sleep = (ms) => {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
 pages.opgaver = (async () => {
 		// Sort the elements in the opgaver table by date with newest first
 	const isEnabled = await getSetting("Opgave Funktioner");
