@@ -266,7 +266,12 @@ input[type="checkbox"]:checked:before {
 }
 
 .fricount {
-    position: absolute;
-    top: 45px;
-    left: 400px;
+    position: relative;
+    padding: 0;
+    display: inline-block;
+    float: left;
+    min-height: 20px;
+    margin: 0;
+    margin-top: 3px;
+    padding-left: 0.75em;
 }
