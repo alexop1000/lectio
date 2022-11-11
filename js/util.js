@@ -194,4 +194,9 @@ const formatTime = (time) => {
     }
     return string;
 }
+
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const qs = (selector, element = document) => element.querySelector(selector);

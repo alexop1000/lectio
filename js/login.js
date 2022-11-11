@@ -29,7 +29,9 @@ pages.login = (async () => {
             usernamebox.value = result.username;
             passwordbox.value = result.password;
             // Try logging in by clicking #m_Content_submitbtn2
-            document.getElementById("m_Content_submitbtn2").click();
+            sleep(500).then(() => {
+                document.getElementById("m_Content_submitbtn2").click();
+            });
         }
     });
 })
