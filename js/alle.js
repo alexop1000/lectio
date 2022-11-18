@@ -35,7 +35,7 @@ pages.alle = (async () => {
 									end.split(":")[0],
 									end.split(":")[1]
 								).getTime();
-								theEnd = endTime
+								if (theEnd && theEnd < endTime) theEnd = endTime;
 							}
 							res2(theEnd)
 						}
